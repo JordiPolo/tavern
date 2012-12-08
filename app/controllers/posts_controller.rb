@@ -1,75 +1,43 @@
 class PostsController < ApplicationController
   before_action :set_post, except: [ :index, :new, :create ]
-#  respond_to :html, :js
+  respond_to :html, :js
 
   def index
     @posts = current_user.posts.page(params[:page]).per(1)
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    respond_with @posts
   end
 
   def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
+    respond_with @post
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
   def new
     @post = Post.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
-    end
+    respond_with @post
   end
 
-  # GET /posts/1/edit
   def edit
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @post = current_user.posts.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      flash[:notice] = "Your post was created" 
     end
+    respond_with(@post)
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update_attributes(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.update_attributes(post_params)
+      flash[:notice] = "Your post was successfully updated."
     end
+    respond_with(@post)
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
-
-    respond_to do |format|
+    respond_with(@post) do |format|
       format.html { redirect_to posts_url }
-      format.json { head :no_content }
     end
   end
 
@@ -83,6 +51,6 @@ class PostsController < ApplicationController
     # Use this method to whitelist the permissible parameters. Example: params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def post_params
-      params.require(:post).permit(:title, :content, :user_id)
+      params.require(:post).permit(:title, :content)
     end
 end
