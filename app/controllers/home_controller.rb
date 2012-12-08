@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_filter :ensure_signed_in
   def show
-    render :text => "Hello #{current_user.first_name}"
+    @posts = Post.page(params[:page]).per(1)
+    render :template => "posts/index"
   end
 end
