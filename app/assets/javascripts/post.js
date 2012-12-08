@@ -1,6 +1,3 @@
-$("<%= j(render @posts) %>").appendTo($("table"));
-$(".paginate").append( "<%= j(  paginate @posts, :remote => true ) %>");
-
 function checkScroll() {
   if (nearBottomOfPage()) {
     if($(".next a").length != 0){
