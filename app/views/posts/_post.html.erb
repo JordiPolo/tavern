@@ -1,10 +1,13 @@
-<tbody>
-  <%= content_tag_for(:tr, @posts) do |post| %>
-      <td><%= post.title %></td>
-      <td><%= post.content %></td>
-      <td><%= post.user_id %></td>
-      <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-</tbody>
+<%= content_tag_for(:article, @posts) do |post| %>
+  <header>
+    <h1><%= post.title %> </h1>
+    <p> posted by: <%= current_user.name %> </p>
+  </header>
+  <p>
+  <%= post.content %>
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_post_path(post) %></br>
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
