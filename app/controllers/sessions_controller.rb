@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token, :ensure_signed_in
 
   def new
     response.headers['WWW-Authenticate'] = Rack::OpenID.build_header(
