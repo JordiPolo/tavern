@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, except: [ :index, :new, :create ]
   
+  def index
+    @posts = current_user.posts
+  end
+
   def show
     respond_to do |format|
       format.html # show.html.erb
