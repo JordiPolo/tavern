@@ -1,5 +1,11 @@
 Tavern::Application.routes.draw do
-   root :to => 'home#show'
+
+  #needed for our authentication. No model.
+  resource :session
+
+  #The planet 
+  root :to => 'home#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
