@@ -1,1 +1,5 @@
 Very Simple collaborative blog
+
+
+This App uses Rails 4.0, Bundler >= 1.2 and Ruby >= 1.9.3
+
