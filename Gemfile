@@ -6,6 +6,7 @@ gem 'journey',   :git => 'git://github.com/rails/journey.git'
 gem 'arel',      :git => 'git://github.com/rails/arel.git'
 
 gem 'sqlite3'
+gem 'jquery-rails'
 
 
 # Gems used only for assets and not required
@@ -20,19 +21,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'debugger'
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
