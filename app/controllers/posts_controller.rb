@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, except: [ :index, :new, :create ]
-  
+#  respond_to :html, :js
+
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.page(params[:page]).per(1)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -30,7 +35,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save

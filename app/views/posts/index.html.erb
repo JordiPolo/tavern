@@ -1,20 +1,13 @@
 <h1>Listing posts</h1>
 <%= link_to 'New Post', new_post_path %>
 
-<table>
-  <thead>
-    <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>User</th>
-        <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id='wellcome'>
+  Wellcome
+</div>
+<div id='posts'>
   <%= render @posts %>
-</table>
+</div>
 
 <div class="paginate">
-  <%= paginate @posts %>
+  <%= paginate @posts, :remote => true %>
 </div>
