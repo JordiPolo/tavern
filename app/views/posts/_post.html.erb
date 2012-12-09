@@ -1,7 +1,7 @@
 <%= content_tag_for(:article, @posts) do |post| %>
   <header>
-    <h1><%= post.title %> </h1>
-    <p> posted by: <%= current_user.name %> </p>
+    <h1> <%= link_to post.title, post %> </h1>
+    <p>  <%= current_user.name %> posted <%= time_ago_in_words(post.created_at) %>  ago </p>
   </header>
   <p>
   <%= post.content %>
