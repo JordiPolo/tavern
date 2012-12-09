@@ -1,0 +1,43 @@
+
+body {
+  background-color: #ddd;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 10px;
+}
+
+header{ 
+  .intro {
+    font-size: 20px;
+    color: #FFF;
+  }
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #111;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+.tavern_header {
+  padding: 5px;
+  background-color: #111;
+  color: #FFF;
+  a {
+    color: #FFF;
+  }
+  font-size: 20px;
+}
+
+article {
+  border: 1px solid #D3EFF5;
+  margin-top: 20px;
+  padding: 10px 20px 15px 20px;
+}
