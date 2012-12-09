@@ -15,13 +15,11 @@ gem "rack-openid"
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
+group :assets, :development do
   gem 'sass-rails',   :git => 'git://github.com/rails/sass-rails.git'
   gem 'coffee-rails', :git => 'git://github.com/rails/coffee-rails.git'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
-
+  gem 'compass-rails'
+  gem 'zurb-foundation'
   gem 'uglifier', '>= 1.0.3'
 end
 
