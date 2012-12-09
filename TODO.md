@@ -1,0 +1,8 @@
+- Add CSS
+- Drafts
+- Upload images
+- comments
+- List users
+- Post per user
+- Public/private posts
+- add external blogs to main page
