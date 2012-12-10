@@ -8,6 +8,7 @@ gem 'arel',      :git => 'git://github.com/rails/arel.git'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'thin'
 
 #authentication
 gem "ruby-openid"
