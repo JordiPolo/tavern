@@ -9,6 +9,34 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require foundation_and_overrides
  *= require_tree .
 */
+@import "bootswatch/spruce/variables";
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body {
+  padding-top: 60px;
+}
+.container-fluid {
+  width:1000px
+}
+.row {
+  margin-left: 0px;
+}
+.post{
+  margin: 0px 30px 5px
+}
+article {
+  border: 1px solid #D3EFF5;
+  margin-top: 20px;
+  padding: 10px 20px 15px 20px;
+}
+
+@import "bootstrap-responsive";
+
+@import "bootswatch/spruce/bootswatch";
+
+// Whatever application styles you have go last
+//@import "base";
+

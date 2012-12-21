@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
   <title>Tavern</title>
 	<meta charset="utf-8" />
@@ -25,16 +20,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="row tavern_header">
-    <div class="four columns intro">
-      <%= current_user.first_name %>, welcome to <%= link_to 'the tavern', root_path %> 
-    </div>
-    <div class="six columns" ></div>
-    <div class="two columns right">
-      <%= link_to 'New post', new_post_path, :class =>"small success button" %>
-    </div>
-  </header>
-  <div class="row" id="contents">
+  <div class="navbar navbar-fixed-top">  
+    <div class="navbar-inner">  
+      <div class="container-fluid">  
+        <ul class="nav">  
+          <li>  
+            <%= link_to 'the tavern', root_path, :class => 'brand' %> 
+          </li>  
+        </ul>  
+        <ul class="nav pull-right">  
+          <li>
+            <%= link_to 'New post', new_post_path, :class =>"btn" %>
+          </li>
+        </ul>
+      </div>  
+    </div>  
+  </div>   
+
+  <div class="container-fluid" id="contents">
     <%= yield %>
   </div>
 </body>
