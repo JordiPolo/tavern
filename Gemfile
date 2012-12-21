@@ -4,10 +4,11 @@ gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'activerecord-deprecated_finders',     :git => 'git://github.com/rails/activerecord-deprecated_finders.git'
 gem 'journey',   :git => 'git://github.com/rails/journey.git'
 gem 'arel',      :git => 'git://github.com/rails/arel.git'
+gem 'jquery-rails'
+
+gem 'kaminari'
 
 gem 'sqlite3'
-gem 'jquery-rails'
-gem 'kaminari'
 gem 'thin'
 
 #authentication
@@ -20,7 +21,8 @@ group :assets, :development do
   gem 'sass-rails',   :git => 'git://github.com/rails/sass-rails.git'
   gem 'coffee-rails', :git => 'git://github.com/rails/coffee-rails.git'
   gem 'compass-rails'
-  gem 'zurb-foundation'
+  gem 'bootswatch-rails'
+  gem 'bootstrap-sass'
   gem 'uglifier', '>= 1.0.3'
 end
 

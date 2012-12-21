@@ -1,4 +1,11 @@
-<img src='tavern.png'/>
+<div class="hero-unit">
+  <div class="row">
+    <%= current_user.first_name %>, welcome to
+  </div>
+  <h1 class="row">The tavern</h1>
+  <div class="pull-right row">of the drunk engineers</div>
+</div>
+
 <div id='posts'>
   <%= render @posts %>
 </div>

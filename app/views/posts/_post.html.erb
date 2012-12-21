@@ -5,7 +5,7 @@
     <p class="right">  <%= current_user.name %> posted <%= time_ago_in_words(post.created_at) %>  ago </p>
   </header>
   <p class='post'>
-  <%= simple_format post.content %>
+    <%= simple_format post.content %>
   </p>
   <p>
     <% if current_user == post.user %> 
@@ -14,4 +14,3 @@
     <% end %>
   </p>
 <% end %>
-<%= link_to 'Back', posts_path %>
