@@ -6,6 +6,6 @@
 - add external blogs to main page
 - Only login users from a certain domain
 - Random subtitle
-- only yourself can edit and delete
+- only yourself can edit and delete refactor
 - Infinite scroll for per-user view
 - No pagination links
