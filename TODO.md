@@ -1,4 +1,4 @@
-- Add CSS
+- About page
 - Drafts
 - Upload images
 - comments

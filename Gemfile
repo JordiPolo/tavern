@@ -7,6 +7,7 @@ gem 'arel',      :git => 'git://github.com/rails/arel.git'
 gem 'jquery-rails'
 
 gem 'kaminari'
+gem 'redcarpet'
 
 gem 'sqlite3'
 gem 'thin'
