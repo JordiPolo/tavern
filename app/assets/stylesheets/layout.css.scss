@@ -1,44 +1,22 @@
-/*
+$max-width: 1000px;
+
+// Bootstrap body padding for fixed navbar
 body {
-  background-color: #ddd;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 10px;
+  padding-top: 60px;
 }
-
-header{ 
-  .intro {
-    font-size: 20px;
-    color: #FFF;
-  }
+.container-fluid {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-a {
-  color: #000;
-  &:visited {
-    color: #111;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+.row {
+  margin-left: 0px;
 }
-
-.tavern_header {
-  padding: 5px;
-  background-color: #111;
-  color: #FFF;
-  a {
-    color: #FFF;
-  }
-  font-size: 20px;
+.post{
+  margin: 0px 30px 5px
 }
-
 article {
   border: 1px solid #D3EFF5;
   margin-top: 20px;
   padding: 10px 20px 15px 20px;
 }
-  */
