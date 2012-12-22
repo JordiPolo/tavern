@@ -4,6 +4,8 @@ Tavern::Application.routes.draw do
 
   resources :posts
 
+  resources :users
+
   #needed for our authentication. No model.
   resource :session
 
