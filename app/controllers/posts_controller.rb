@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @posts = Posts.all.include(:author).page(params[:page]).per(1)
+    @posts = Post.all.page(params[:page]).per(1)
     respond_with @posts
   end
 
