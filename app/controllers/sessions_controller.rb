@@ -2,29 +2,17 @@ class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :ensure_signed_in
 
   def new
-    response.headers['WWW-Authenticate'] = Rack::OpenID.build_header(
-      :identifier => "https://www.google.com/accounts/o8/id",
-      :required => ["http://axschema.org/contact/email",
-        "http://axschema.org/namePerson/first",
-        "http://axschema.org/namePerson/last"],
-        :return_to => session_url,
-        :method => 'POST')
-        head 401
+    response.headers['WWW-Authenticate'] = Authentication.create_new_auth_headers(session_url)
+    head 401
   end
 
   def create
-    if openid = request.env[Rack::OpenID::RESPONSE]
-      case openid.status
-      when :success
-        ax = OpenID::AX::FetchResponse.from_success_response(openid)
-        user = User.where(:identifier_url => openid.display_identifier).first
-        user ||= User.create!(:identifier_url => openid.display_identifier,
-                              :email => ax.get_single('http://axschema.org/contact/email'),
-                              :first_name => ax.get_single('http://axschema.org/namePerson/first'),
-                              :last_name => ax.get_single('http://axschema.org/namePerson/last'))
-        session[:user_id] = user.id
+    auth = Authentication.new(request)
+    if auth.requested?
+      if auth.authenticated?
+        session[:user_id] = auth.user.id
         redirect_to(session[:redirect_to] || root_path)
-      when :failure
+      else
         render :action => 'problem'
       end
     else
@@ -34,7 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, :notice => "Logged out"
   end
 
 end

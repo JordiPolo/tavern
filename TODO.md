@@ -2,9 +2,10 @@
 - Upload images
 - comments
 - List users
-- Post per user
 - Public/private posts
 - add external blogs to main page
 - Only login users from a certain domain
 - Random subtitle
 - only yourself can edit and delete
+- Infinite scroll for per-user view
+- No pagination links
