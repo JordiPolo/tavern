@@ -1,4 +1,3 @@
-- About page
 - Drafts
 - Upload images
 - comments
@@ -6,3 +5,5 @@
 - Post per user
 - Public/private posts
 - add external blogs to main page
+- Only login users from a certain domain
+- Random subtitle
