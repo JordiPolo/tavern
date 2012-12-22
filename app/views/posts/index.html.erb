@@ -5,11 +5,5 @@
   <h1 class="row">The tavern</h1>
   <div class="pull-right row">of the drunk engineers</div>
 </div>
+<%= render 'posts/list', posts: @posts %>
 
-<div id='posts'>
-  <%= render @posts %>
-</div>
-
-<div class="paginate hidden">
-  <%= paginate @posts, :remote => true %>
-</div>
