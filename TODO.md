@@ -7,3 +7,4 @@
 - add external blogs to main page
 - Only login users from a certain domain
 - Random subtitle
+- only yourself can edit and delete

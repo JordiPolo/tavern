@@ -14,24 +14,7 @@
 @import "bootswatch/spruce/variables";
 @import "bootstrap";
 
-// Bootstrap body padding for fixed navbar
-body {
-  padding-top: 60px;
-}
-.container-fluid {
-  max-width:1000px
-}
-.row {
-  margin-left: 0px;
-}
-.post{
-  margin: 0px 30px 5px
-}
-article {
-  border: 1px solid #D3EFF5;
-  margin-top: 20px;
-  padding: 10px 20px 15px 20px;
-}
+@import "layout";
 
 @import "bootstrap-responsive";
 
