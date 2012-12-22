@@ -2,13 +2,15 @@
 <%= content_tag_for(:article, post) do |post| %>
   <header>
     <h1> <%= link_to post.title, post %> </h1>
-    <p class="right">  <%= current_user.name %> posted <%= time_ago_in_words(post.created_at) %>  ago </p>
+    <p class="pull-right">  
+      <%= link_to post.author.name, user_path(post.author) %> posted <%= time_ago_in_words(post.created_at) %>  ago 
+    </p>
   </header>
   <p class='post'>
     <%= post.html %>
   </p>
   <p>
-    <% if current_user == post.user %> 
+    <% if current_user == post.author %> 
       <%= link_to 'Edit', edit_post_path(post) %></br>
       <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
