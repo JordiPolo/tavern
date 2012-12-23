@@ -244,6 +244,7 @@ DEPENDENCIES
   bootstrap-sass
   bootswatch-rails
   capybara
+  coderay
   coffee-rails!
   compass-rails
   debugger

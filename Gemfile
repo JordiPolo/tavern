@@ -8,6 +8,7 @@ gem 'jquery-rails'
 
 gem 'kaminari'
 gem 'redcarpet'
+gem 'coderay'
 
 gem 'sqlite3'
 gem 'thin'
