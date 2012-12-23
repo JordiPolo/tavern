@@ -8,4 +8,7 @@
 - Random subtitle
 - only yourself can edit and delete refactor
 - Infinite scroll for per-user view
-- No pagination links
+- Syntax highlighting
+- Posts are bookmarkable
+- List of your bookmarked posts
+- List of Popular posts

@@ -4,6 +4,9 @@ $max-width: 1000px;
 body {
   padding-top: 60px;
 }
+.align-right {
+  text-align:right;
+}
 .container-fluid {
   max-width: $max-width;
   margin-left: auto;
