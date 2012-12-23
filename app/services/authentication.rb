@@ -1,9 +1,5 @@
 class Authentication
 
-  def initialize(request)
-    @request = request
-  end
-
   def self.create_new_auth_headers(url)
     Rack::OpenID.build_header(
       :identifier => "https://www.google.com/accounts/o8/id",
@@ -12,6 +8,10 @@ class Authentication
                     "http://axschema.org/namePerson/last"],
                     :return_to => url,
                     :method => 'POST')
+  end
+
+  def initialize(request)
+    @request = request
   end
   
   def requested?
