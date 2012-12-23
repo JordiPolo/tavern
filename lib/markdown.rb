@@ -1,7 +1,7 @@
 
 class HTMLWithSyntaxHighlight < Redcarpet::Render::HTML
   def block_code(code, language)
-    CodeRay.scan(code, language)
+    CodeRay.scan(code, language).div( line_numbers: :table, line_number_anchors: false)
   end
 end
 
@@ -14,7 +14,7 @@ class Markdown
 
   #human readable method
   def self.render(src)
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
+    renderer = HTMLWithSyntaxHighlight.new(hard_wrap: true, filter_html: true)
     options = {
       autolink: true,
       no_intra_emphasis: true,
