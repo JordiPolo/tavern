@@ -8,5 +8,6 @@ FactoryGirl.define do
   factory :post do
     sequence(:title) { |n| "title#{n}"}
     sequence(:content) { |n| "contents#{n}" }
+    association :author,  factory: :user
   end
 end
