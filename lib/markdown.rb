@@ -1,3 +1,10 @@
+
+class HTMLWithSyntaxHighlight < Redcarpet::Render::HTML
+  def block_code(code, language)
+    CodeRay.scan(code, language)
+  end
+end
+
 class Markdown
   #this method is used by rails to automatically conver .md files to html
   def self.call(template)
@@ -7,7 +14,7 @@ class Markdown
 
   #human readable method
   def self.render(src)
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
     options = {
       autolink: true,
       no_intra_emphasis: true,

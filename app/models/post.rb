@@ -5,5 +5,33 @@ class Post < ActiveRecord::Base
   def html
     Markdown.render(self.content)
   end
+
+  def published=(status)
+    if status == true
+      access='domain'
+    else
+      access='private'
+    end
+
+  end
+
+  def public?
+    access == 'internet'
+  end
+
+  def published?
+    access == "domain"
+  end
+
+  def draft?
+    access == "private"
+  end
+
+  def access=(new_access)
+    @access= new_access
+  end
+  def access
+    @access||"domain"
+  end
   
 end

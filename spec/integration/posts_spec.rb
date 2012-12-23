@@ -6,7 +6,6 @@ describe "Posts", :type => :integration do
     user = create(:user)
     create(:post, title: 'first post')
     AuthenticationHelper.stub!(:current_user).and_return(create(:user))
-
     visit posts_path
     #save_and_open_page
     page.should have_content('first post')
