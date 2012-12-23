@@ -1,13 +1,12 @@
-- Drafts
 - Upload images
 - comments
 - List users
 - Public/private posts
+- Drafts
 - add external blogs to main page
 - Only login users from a certain domain
 - Random subtitle
 - only yourself can edit and delete refactor
-- Infinite scroll for per-user view
 - Posts are bookmarkable
-- List of your bookmarked posts
+- List of your bookmarked post
 - List of Popular posts

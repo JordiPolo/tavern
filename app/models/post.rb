@@ -6,6 +6,15 @@ class Post < ActiveRecord::Base
     Markdown.render(self.content)
   end
 
+  def self.all_last(user=nil)
+    posts = Post.order('created_at DESC')
+    if user
+      posts.where(user_id: user.id)
+    else
+      posts
+    end
+  end
+
   def published=(status)
     if status == true
       access='domain'

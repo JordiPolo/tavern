@@ -12,6 +12,6 @@ This information can be links to articles, best practices, how they solved a giv
 
 Features:
 
-*  Create your post in Markdown. Github style.
+*  Create your post in Markdown. With syntax highlighting. Github style. 
 *  Infinite scrolling of neverending post, well, eventually you read
    them all.

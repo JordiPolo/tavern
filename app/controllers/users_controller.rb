@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @posts = User.find(params[:id]).posts.page(params[:page]).per(1)
-    render 'posts/_list', :locals => {posts: @posts}
+    user = User.find(params[:id])
+    @posts = Post.all_last(user).page(params[:page]).per(1)
+    render 'posts/index'
   end
 end
