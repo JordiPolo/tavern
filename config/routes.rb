@@ -10,7 +10,8 @@ Tavern::Application.routes.draw do
   resource :session
 
   #The planet 
-  root :to => 'home#show'
+  root :to => 'posts#index'
+  #root :to => 'home#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
