@@ -2,7 +2,6 @@
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
       <% @post.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -13,9 +12,22 @@
 
   <%= f.label :title %><br />
   <%= f.text_field :title, :class => 'span6' %>
-  <%= f.label :content %><br />
-  <%= f.text_area :content, :class=> 'span10 input-xlarge', :rows => 15 %>
   <div class='row'>
+    <%= f.label :content %><br />
+    <%= f.text_area :content, :class=> 'span10 input-xlarge', :rows => 15 %><br/>
+    Write your post using <a href="https://gist.github.com/raw/976172/70f1e0db278340bd8167c98fb880979b4571e847/gistfile1.md">Markdown</a>
+  </div>
+  <div class='row'>
+    <%= f.radio_button 'access', 'private' %>
+     Private access. This is a draft only visible by you. <br/>
+    <%= f.radio_button 'access', 'restricted' %>
+    Restricted access. Visible to all the logged in users.<br/>
+    <% if TAVERN_CONFIG.public_access? %>
+      <%= f.radio_button 'access', 'public' %>
+      Public access. Visible to all user, do not require log in. <br/>
+    <% end %>
+  </div>
+  <div class='btn-toolbar'>
     <%= f.submit :class=>'btn btn-primary' %>
     <%= link_to 'Cancel', :back, :class =>'btn' %>
   </div>

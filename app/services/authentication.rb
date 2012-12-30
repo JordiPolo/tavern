@@ -32,6 +32,7 @@ class Authentication
       case openid.status
       when :success
         ax = OpenID::AX::FetchResponse.from_success_response(openid)
+        return if email_not_allowed?(ax)
         user = User.where(:identifier_url => openid.display_identifier).first
         user ||= User.create!(:identifier_url => openid.display_identifier,
                               :email => ax.get_single('http://axschema.org/contact/email'),
@@ -40,6 +41,16 @@ class Authentication
       when :failure
         nil
       end
+  end
+
+  def email_not_allowed?(ax)
+    return if TAVERN_CONFIG.public_access?
+    email = ax.get_single('http://axschema.org/contact/email')
+    domain = email.split('@').last
+    # I think the logic belowns here
+    if TAVERN_CONFIG.domain != domain
+      return true
+    end
   end
 
 end
