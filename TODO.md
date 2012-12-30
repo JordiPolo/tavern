@@ -1,12 +1,17 @@
 - Upload images
 - comments
 - List users
-- Public/private posts
-- Drafts
-- add external blogs to main page
-- Only login users from a certain domain
-- Random subtitle
-- only yourself can edit and delete refactor
+- draft
+  - Other users can not see private posts
+  - Show the access status of a post
+- Public is usable
+  - Public users do not need to log in
+  - public users can see public posts
+  - can set posts as public
+  - log in users can see what posts are public
 - Posts are bookmarkable
-- List of your bookmarked post
-- List of Popular posts
+  - List of your bookmarked post
+  - List of Popular posts
+- Random subtitle
+- add external blogs to main page
+- prerender html?

@@ -3,12 +3,13 @@
   <% present post_data do |post| %>
     <header>
       <h1> <%= link_to post.title, post_data %> </h1>
-      <p class="align-right">  
-        <%= post.information %>
-      </p>
     </header>
     <p class='row post'>
       <%= post.html %>
+    </p>
+    <p class="row align-right">  
+      <%= post.information %>
+      <%= post.access_info %>
     </p>
     <div class='row'>
       <div class='align-right'>

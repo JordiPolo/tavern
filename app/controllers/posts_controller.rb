@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @posts = Post.all_last.page(params[:page]).per(1)
+    @posts = Post.for(current_user).page(params[:page])
     respond_with @posts
   end
 
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new Post.defaults
     respond_with @post
   end
 
@@ -29,7 +29,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    raise post_params.to_s
     if @post.update_attributes(post_params)
       flash[:notice] = "Your post was successfully updated."
     end
@@ -53,6 +52,6 @@ class PostsController < ApplicationController
     # Use this method to whitelist the permissible parameters. Example: params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :access)
     end
 end

@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define do
-
-  migrations do
-    migration 20121208013924, "44a13c3a0ee956e2ad9914777a724316", "create_users"
-    migration 20121208022632, "4f7a9a804d7186678e5daca00b6aaa43", "create_posts"
-  end
+ActiveRecord::Schema.define(version: 20121230151609) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -24,6 +19,8 @@ ActiveRecord::Schema.define do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "html"
+    t.string   "access"
   end
 
   create_table "users", force: true do |t|

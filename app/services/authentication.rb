@@ -47,7 +47,7 @@ class Authentication
     return if TAVERN_CONFIG.public_access?
     email = ax.get_single('http://axschema.org/contact/email')
     domain = email.split('@').last
-    # I think the logic belowns here
+    # I think the logic does belown here
     if TAVERN_CONFIG.domain != domain
       return true
     end
