@@ -1,9 +1,6 @@
 - Upload images
 - comments
 - List users
-- draft
-  - Other users can not see private posts
-  - Show the access status of a post
 - Public is usable
   - Public users do not need to log in
   - public users can see public posts
@@ -12,6 +9,7 @@
 - Posts are bookmarkable
   - List of your bookmarked post
   - List of Popular posts
+- admin panel : active_admin
 - Random subtitle
 - add external blogs to main page
 - prerender html?
