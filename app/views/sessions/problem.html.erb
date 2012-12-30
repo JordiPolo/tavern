@@ -1,3 +1,7 @@
 <h1>DOH!</h1>
 
 <p>Looks like your Google login didn't quite work.  <%= link_to 'Try again?', new_session_path %></p>
+
+<% if TAVERN_CONFIG.restricted #TODO: find a better place for this%>
+  <p> Only logins from the domain <%= TAVERN_CONFIG.domain %> are allowed </p>
+<% end %>

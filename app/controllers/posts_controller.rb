@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def edit
   end
 
+  # this works because the Rails has a ActionController::Responder with the logic
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
@@ -28,6 +29,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    raise post_params.to_s
     if @post.update_attributes(post_params)
       flash[:notice] = "Your post was successfully updated."
     end
