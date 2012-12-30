@@ -1,46 +1,25 @@
 class Post < ActiveRecord::Base
   belongs_to :author, :class_name => 'User', :foreign_key => 'user_id', :inverse_of => :posts
+  paginates_per 10
 
-  #TODO: save this in the DB when I can make migrations
+  default_scope order('created_at DESC')
+  scope :for, lambda {|current_user| where('access = ? OR access = ? AND user_id = ?', 'restricted', 'private', current_user.id)   }
+
+  def self.defaults
+    { access: 'restricted' }
+  end
+
+  #TODO: save this in the DB?
   def html
     Markdown.render(self.content)
   end
 
-  def self.all_last(user=nil)
-    posts = Post.order('created_at DESC')
-    if user
-      posts.where(user_id: user.id)
-    else
-      posts
-    end
+  def public_access?
+    access == 'public'
   end
 
-  def published=(status)
-    if status == true
-      access='domain'
-    else
-      access='private'
-    end
-
-  end
-
-  def public?
-    access == 'internet'
-  end
-
-  def published?
-    access == "domain"
-  end
-
-  def draft?
+  def private?
     access == "private"
-  end
-
-  def access=(new_access)
-    @access= new_access
-  end
-  def access
-    @access||"domain"
   end
   
 end
