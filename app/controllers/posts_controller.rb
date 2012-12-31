@@ -8,6 +8,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments
+    @new_comment = @post.comments.new
     respond_with @post
   end
 

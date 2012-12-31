@@ -1,1 +1,3 @@
 <%= render :partial => @post %>
+<%= render :partial => 'comment', :collection=> @comments %>
+<%= render :partial => 'new_comment', :locals => {:comment => @new_comment} %>

@@ -15,3 +15,4 @@ Features:
 *  Create your post in Markdown. With syntax highlighting. Github style. 
 *  Infinite scrolling of neverending post, well, eventually you read
    them all.
+*  Lock it. Only users from a given domain can login and see the posts

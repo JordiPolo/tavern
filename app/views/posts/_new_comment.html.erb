@@ -1,0 +1,22 @@
+<%= form_for(@new_comment) do |f| %>
+  <% if @new_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+      <% @new_comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='row'>
+    <%= f.label :content %><br />
+    <%= f.hidden_field :post_id, :value => @post.id %>
+    <%= f.text_area :content, :required => true, :class=> 'span8 input-xlarge', :rows => 6 %><br/>
+    Write your post using <a href="https://gist.github.com/raw/976172/70f1e0db278340bd8167c98fb880979b4571e847/gistfile1.md">Markdown</a>
+  </div>
+  <div class='btn-toolbar'>
+    <%= f.submit :class=>'btn btn-primary' %>
+    <%= link_to 'Cancel', :back, :class =>'btn' %>
+  </div>
+<% end %>

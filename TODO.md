@@ -1,5 +1,4 @@
 - Upload images
-- comments
 - List users
 - Public is usable
   - Public users do not need to log in

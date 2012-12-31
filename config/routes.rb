@@ -2,9 +2,9 @@ Tavern::Application.routes.draw do
 
   get "about", :to => "pages#about" 
 
-  resources :posts
-
   resources :users
+  resources :posts
+  resources :comments
 
   #needed for our authentication. No model.
   resource :session
