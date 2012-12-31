@@ -1,5 +1,11 @@
 class Post < ActiveRecord::Base
   belongs_to :author, :class_name => 'User', :foreign_key => 'user_id', :inverse_of => :posts
+  has_many :comments, :dependent => :destroy
+
+  validates_presence_of :title
+  validates_presence_of :content
+  validates_presence_of :access
+
   paginates_per 10
 
   default_scope order('created_at DESC')

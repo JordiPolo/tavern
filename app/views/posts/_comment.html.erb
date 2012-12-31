@@ -1,0 +1,17 @@
+<% unless comment.id.nil? %>
+  <%= content_tag_for(:article, comment) do |comment_data| %>
+    <% present comment_data do |comment| %>
+      <p class='row user_name'>
+      <%= comment.author_says %>
+      </p>
+      <p class='row comment'>
+      <%= comment.html %>
+      </p>
+      <div class='row'>
+        <div class='align-right'>
+          <%= comment.actions_for(current_user) %>
+       </div>
+      </div>
+    <% end %>
+  <% end%>
+<% end %>
